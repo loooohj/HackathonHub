@@ -1,0 +1,40 @@
+body, .navbar{
+    background-color: #020714/*#010f30*/;
+
+}
+span{
+    color:#B08FD6/*#8b62bd*/;
+    
+}
+.display-1{
+    margin-top:15%;
+}
+.lead{
+    margin-bottom:22%;
+}
+#navbarNav{
+    margin-left:50%;
+}
+.sign:hover{
+    background-color:#B08FD6/*#8b62bd*/;
+}
+.sign{
+    color:white;
+}   
+.container-lg{
+    margin-top:19.5%;
+}
+img{
+    height:336px;
+    margin-bottom: 2%;
+}
+.footer{
+    left:0;
+    right:0;
+}
+html{
+    scroll-padding: 7rem;
+  }
+  /*.modal-content{
+    background-color:rgb(22, 22, 22)
+  }*/
