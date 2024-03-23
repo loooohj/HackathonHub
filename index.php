@@ -10,6 +10,7 @@
 <body>
 
 <!--Navbar-->
+
 <nav class="navbar navbar-expand-lg bg-secondary bg-opacity-10 border border-secondary border-start-0">
   <div class="container-fluid ">
     <a class="navbar-brand" href="#"><span>HackathonHub</span></a>
@@ -31,7 +32,7 @@
           <a class="nav-link text-white" href="#"  data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Sign in</a>
         </li>
         <li class="nav-item ">
-          <a class="nav-link sign border border-white rounded p-2" href="#" >Sign up</a>
+          <a class="nav-link sign border border-white rounded p-2" href="#" data-bs-toggle="modal" data-bs-target="#examplemodal" data-bs-whatever="@mbo" >Sign up</a>
         </li>
       </ul>
     </div>
@@ -162,7 +163,9 @@ But <span class="fw-bold">HackathonHub</span>  isn't just for participants – i
     </div>
   </div>
 </div>
-<!-- Full screen modal -->
+
+
+<!-- Full screen modal: Sign in-->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content bg-dark">
@@ -170,11 +173,10 @@ But <span class="fw-bold">HackathonHub</span>  isn't just for participants – i
         <h1 class="modal-title fs-5 text-white text-center" id="exampleModalLabel">Sign In</h1>
       </div>
       <div class="modal-body">
-      <form>
+  <form>
   <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label text-white">Email address</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-    <div id="emailHelp" class="form-text text-white">We'll never share your email with anyone else.</div>
+    <input type="email" class="form-control" id="exampleInputEmail1">
   </div>
   <div class="mb-3">
     <label for="exampleInputPassword1" class="form-label text-white">Password</label>
@@ -189,6 +191,51 @@ But <span class="fw-bold">HackathonHub</span>  isn't just for participants – i
       <div class="modal-footer">
       <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
       <button type="submit" class="border border-white rounded p-2">Sign in</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Full screen modal: Sign up-->
+<div class="modal fade" id="examplemodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content bg-dark">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5 text-white text-center" id="exampleModalLabel">Sign Up</h1>
+      </div>
+      <div class="modal-body">
+    <form action="add_user.php" method="post">
+     <div class="mb-3">
+    <label for="first_name" class="form-label text-white">First Name</label>
+    <input type="text" class="form-control" id="first_name" name="first_name">
+  </div>
+  <div class="mb-3">
+    <label for="name" class="form-label text-white">Name</label>
+    <input type="text" class="form-control" id="name" name="name">
+  </div>
+  <div class="mb-3">
+    <label for="email" class="form-label text-white">Email address</label>
+    <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp">
+    <div id="emailHelp" class="form-text text-white">We'll never share your email with anyone else.</div>
+  </div> 
+  <div class="mb-3">
+    <label for="tel" class="form-label text-white">Telephone number</label>
+    <input type="tel" class="form-control" id="tel" name="tel">
+  </div> 
+  <!--pattern="[0-9]{8}"--> 
+  <div class="mb-3">
+    <label for="password" class="form-label text-white">Password</label>
+    <input type="password" class="form-control" id="password" name="password">
+  </div>
+  <div class="mb-3">
+    <label for="confirm_password" class="form-label text-white">Confirm password</label>
+    <input type="password" class="form-control" id="confirm_password" name="confirm_password">
+  </div>
+  <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      <button type="submit" class="border border-white rounded p-2">Sign up</button>
+      </div>
+  </form>
       </div>
     </div>
   </div>
