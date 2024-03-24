@@ -1,0 +1,105 @@
+/*-----------------------------------*\
+ * #RESET
+\*-----------------------------------*/
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+a,
+img,
+span,
+input,
+label,
+button {
+  display: block;
+}
+
+input,
+button {
+  background: none;
+  border: none;
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+input {
+  width: 100%;
+}
+
+html {
+  font-family: "Tahoma", sans-serif;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: rgb(224, 224, 224);
+}
+
+/*-----------------------------------*\
+ * #NAV
+\*-----------------------------------*/
+.main-nav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 40px;
+  background-color: #1b2a36;
+  padding: 20px;
+}
+.main-nav img {
+  margin-left: 40px;
+}
+
+.main-nav a:is(:link, :visited) {
+  color: white;
+  font-size: large;
+  font-weight: 600;
+  padding: 15px;
+}
+
+.main-nav a.active {
+  font-size: large;
+  font-weight: 600;
+  background-color: black;
+  border-radius: 10px;
+}
+/*-----------------------------------*\
+ * #HEADER
+\*-----------------------------------*/
+
+header {
+  background-color: white;
+  height: 100px;
+}
+
+header p {
+  color: #1b2a36;
+  padding: 30px 50px;
+  font-weight: bold;
+  font-size: 30px;
+}
+
+/*-----------------------------------*\
+ * #TBA
+\*-----------------------------------*/
+
+p {
+  padding: 30px;
+  font-size: 25px;
+}
