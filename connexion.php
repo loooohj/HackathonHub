@@ -1,5 +1,5 @@
 <?php
-/*database Connexion*/
+/*database Connetion*/
 function connexionDB(){
     try{
         $db = new PDO("mysql:host=localhost;dbname=hackathonhub", "root", "");

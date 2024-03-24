@@ -40,10 +40,12 @@
 </nav>
 
 <!--Welcome-->
+
 <div class="display-1 text-white text-center">Welcome to <span>HackathonHub</span></div>
 <div class="lead  text-light text-center fw-bold mt-2">your go-to platform for <br> <span>discovering</span> and <span>organizing</span> hackathons!</div> 
 
 <!--About us + Carousel -->
+
 <h1 class="text-light text-center mb-5" id="about"><span>About us</span></h1>
 <div class="container-lg mt-1">
  <div class="row justify-content-center align-items-center g-0">
@@ -98,6 +100,7 @@ But <span class="fw-bold">HackathonHub</span>  isn't just for participants – i
  </div>
 
  <!--Reviews-->
+
  <div class="container-lg" id="review">
  <h1 class="text-light text-center"><span>Reviews</span></h1>
  <div class=" lead text-light text-center fw-bold mb-5"> Many have come before you...</div>
@@ -138,6 +141,7 @@ But <span class="fw-bold">HackathonHub</span>  isn't just for participants – i
 </div>
 
 <!--footer-->
+
 <div class="bg-secondary bg-opacity-10 border border-secondary border-start-0 mt-5" id="contact">
 <div class="container">
     <div class="row">
@@ -166,6 +170,7 @@ But <span class="fw-bold">HackathonHub</span>  isn't just for participants – i
 
 
 <!-- Full screen modal: Sign in-->
+
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content bg-dark">
@@ -173,10 +178,10 @@ But <span class="fw-bold">HackathonHub</span>  isn't just for participants – i
         <h1 class="modal-title fs-5 text-white text-center" id="exampleModalLabel">Sign In</h1>
       </div>
       <div class="modal-body">
-  <form>
+  <form action="sign_in.php" method="post">
   <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label text-white">Email address</label>
-    <input type="email" class="form-control" id="exampleInputEmail1">
+    <input type="email" class="form-control" id="exampleInputEmail1" name="email2">
   </div>
   <div class="mb-3">
     <label for="exampleInputPassword1" class="form-label text-white">Password</label>
@@ -186,17 +191,18 @@ But <span class="fw-bold">HackathonHub</span>  isn't just for participants – i
     <input type="checkbox" class="form-check-input" id="exampleCheck1">
     <label class="form-check-label text-white" for="exampleCheck1">Check me out</label>
   </div>
-  </form>
-      </div>
-      <div class="modal-footer">
+  <div class="modal-footer">
       <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
       <button type="submit" class="border border-white rounded p-2">Sign in</button>
+      </div>
+  </form>
       </div>
     </div>
   </div>
 </div>
 
 <!-- Full screen modal: Sign up-->
+
 <div class="modal fade" id="examplemodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content bg-dark">
