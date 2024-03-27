@@ -3,7 +3,7 @@
 
   <h2 class="h2 section-title">Contact US</h2>
 
-  <div class="contact">
+  <div class="contact" id="contact">
     <div class="contact-inner-container">
       <div class="contact-info-container">
         <h1 class="contact-heading">Say Hello!</h1>

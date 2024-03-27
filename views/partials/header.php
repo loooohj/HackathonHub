@@ -57,15 +57,15 @@
             </li>
 
             <li>
-              <a href="#aboutus" class="navbar-link">About us</a>
+              <a href="#aboutussec" class="navbar-link">About us</a>
             </li>
 
             <li>
-              <a href="#reviews" class="navbar-link">Reviews</a>
+              <a href="#testimonial" class="navbar-link">Reviews</a>
             </li>
 
             <li>
-              <a href="#contactus" class="navbar-link">contact us</a>
+              <a href="#contact" class="navbar-link">contact us</a>
             </li>
           </ul>
         </nav>

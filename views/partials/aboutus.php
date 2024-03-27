@@ -2,86 +2,38 @@
         - #PACKAGE
       -->
 
- <section class="aboutus" id="aboutus">
-   <div class="container">
-     <p class="section-subtitle">Popular Packeges</p>
+ <section class="container aboutussec" id="aboutussec">
+   <p class="section-subtitle">For more informations</p>
 
-     <h2 class="h2 section-title">Checkout Our Packeges</h2>
+   <h2 class="h2 section-title">About US</h2>
+   <div class="aboutus">
+     <p>
+       Are you passionate about innovation, technology, and collaborative problem-solving? Look no further – HackathonHub is here to connect you with a world of hackathons where you can unleash your creativity and make a difference. As a participant, explore our curated list of upcoming hackathons tailored to your interests, skills, and schedule. Whether you're a seasoned developer, a design enthusiast, or a budding entrepreneur, there's a hackathon waiting for you. But HackathonHub isn't just for participants – it's also for organizers! If you're looking to host your own hackathon, our platform provides all the tools and resources you need to plan, promote, and manage your event seamlessly. </p>
+     <div class="slideshow-container">
 
-     <p class="section-text">
-       Choose the package that suits your desires, and get ready for an
-       experience of a lifetime.
-     </p>
+       <!-- Full-width images with number and caption text -->
+       <div class="mySlides fade">
+         <div class="numbertext">1 / 3</div>
+         <img src="images/hack3.jpg" style="width:100%">
 
-     <ul class="aboutus-list">
-       <li>
-         <div class="aboutus-card">
-           <figure class="card-banner">
-             <img src="./images/packege-1.jpg" alt="7 Day Star Wars Shooting locations tour" loading="lazy" />
-           </figure>
+       </div>
 
-           <div class="card-content">
-             <h3 class="h3 card-title">
-               7 Day Star Wars Shooting locations tour
-             </h3>
+       <div class="mySlides fade">
+         <div class="numbertext">2 / 3</div>
+         <img src="images/hack2.jpg" style="width:100%">
 
-             <p class="card-text">
-               Embark on a captivating 7-day journey through the enchanting
-               landscapes of Tunisia, tracing the footsteps of the iconic
-               Star Wars film series
-             </p>
+       </div>
 
-             <ul class="card-meta-list">
-               <li class="card-meta-item">
-                 <div class="meta-box">
-                   <ion-icon name="time"></ion-icon>
+       <div class="mySlides fade">
+         <div class="numbertext">3 / 3</div>
+         <img src="images/hack1.jpg" style="width:100%">
+       </div>
 
-                   <p class="text">7D/6N</p>
-                 </div>
-               </li>
+       <!-- Next and previous buttons -->
+       <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+       <a class="next" onclick="plusSlides(1)">&#10095;</a>
+     </div>
 
-               <li class="card-meta-item">
-                 <div class="meta-box">
-                   <ion-icon name="people"></ion-icon>
-
-                   <p class="text">pax: 10</p>
-                 </div>
-               </li>
-
-               <li class="card-meta-item">
-                 <div class="meta-box">
-                   <ion-icon name="location"></ion-icon>
-
-                   <p class="text">Matmata</p>
-                 </div>
-               </li>
-             </ul>
-           </div>
-
-           <div class="card-price">
-             <div class="wrapper">
-               <p class="reviews">(25 reviews)</p>
-
-               <div class="card-rating">
-                 <ion-icon name="star"></ion-icon>
-                 <ion-icon name="star"></ion-icon>
-                 <ion-icon name="star"></ion-icon>
-                 <ion-icon name="star"></ion-icon>
-                 <ion-icon name="star"></ion-icon>
-               </div>
-             </div>
-
-             <p class="price">
-               $750
-               <span>/ per person</span>
-             </p>
-
-             <button class="btn btn-secondary">Book Now</button>
-           </div>
-         </div>
-       </li>
-     </ul>
-
-     <button class="btn btn-primary">View All Packages</button>
    </div>
+
  </section>
