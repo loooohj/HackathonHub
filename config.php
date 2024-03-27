@@ -1,7 +1,8 @@
 <?php
 
 return [
-  // "dbname" => 'localhostXE',
-  "port" => 1521,
-  "charset" => "utf8"
+  'host' => 'localhost',
+  'dbname' => 'gamedata',
+  'port' => 7050,
+  'charset' => 'utf8mb4'
 ];

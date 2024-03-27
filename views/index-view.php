@@ -1,7 +1,8 @@
 <?php require "partials/head.php"; ?>
-<?php require "partials/nav.php"; ?>
 <?php require "partials/header.php"; ?>
-
-<p>Wassup lil nigga</p>
-
+<?php require "partials/signup.php"; ?>
+<?php require "partials/hero.php"; ?>
+<?php require "partials/aboutus.php"; ?>
+<?php require "partials/reviews.php"; ?>
+<?php require "partials/contactus.php"; ?>
 <?php require "partials/footer.php"; ?>
