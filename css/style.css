@@ -832,7 +832,7 @@ section {
   left: 50%; /* Adjust as needed */
   transform: translate(-50%, -50%);
   padding: 20px;
-  z-index: 1001; /* Ensure it's above the blur effect */
+  z-index: 1000; /* Ensure it's above the blur effect */
   pointer-events: auto; /* Enable clicks on the menu */
   width: 700px;
   padding: 20px;
