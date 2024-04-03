@@ -53,6 +53,26 @@ catch(PDOException $exception){
     </div>
   </div>
 </nav> 
-<h2 class="text-light">Welcome <?=$_SESSION["email"]?></h2>   
+<h2 class="text-light mb-3">Welcome <?=$_SESSION["email"]?></h2>
+
+<!--Hackathons cards-->
+<div class="container-fluid">
+<?php
+/*count($ListeHackathons);*/ 
+foreach($ListeHackathons as $Hackathon){
+  ?>
+  <div class="col-lg-3 col-sm-12">
+  <div class="card">
+  <img src="<?=$Hackathon->img?>" class="card-img-top" alt="<?=$Hackathon->name_hackathon?>">
+  <div class="card-body">
+    <h5 class="card-title text-center"><?=$Hackathon->name_hackathon?></h5>
+    <p class="card-text text-center"><small class="text-body-secondary"><?=$Hackathon->date?>, <?=$Hackathon->place?></small></p>
+  </div>
+  </div>
+  </div>
+<?php
+}
+?>
+</div>
 </body>
 </html>

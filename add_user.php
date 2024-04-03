@@ -1,19 +1,21 @@
 <?php
 /*Add a new user */
 include_once "connexion.php";
-$db=connexionDB();
-$name=$db->quote($_POST["name"]);
-$first_name=$db->quote($_POST["first_name"]);
-$email=$db->quote($_POST["email"]);
-$tel=$_POST["tel"];
-$confirm_password=$db->quote($_POST["confirm_password"]);
-$password=$db->quote($_POST["password"]);
-$sql="INSERT INTO users(name,first_name,email_address,telephone_number,password) VALUES($name,$first_name,$email,$tel,$password)";
-try{
-    $resultat=$db->exec($sql);
-    if($resultat) header('location:hackathons.php');
-}
-catch(PDOException $exception){
-    die($exception->getMessage());
-}
+include_once "Model/Users.php";
+if(empty($_POST["name"]) or empty($_POST["first_name"]) or empty($_POST["email"]) or empty($_POST["tel"]) or empty($_POST["confirm_password"]) or empty($_POST["password"])){
+    die("Please fill out all fields !");
+} 
+$name=$_POST["name"];
+$first_name=$_POST["first_name"];
+$email=$_POST["email"];
+$tel=(int)$_POST["tel"];
+$confirm_password=$_POST["confirm_password"];
+$password=$_POST["password"];
+$u=new Users();
+$resultat=$u->add_user($name,$first_name,$email,$tel,$password);
+if($resultat){
+    session_start();
+    $_SESSION["email"]=$_POST["email"];
+    header('location:hackathons.php');
+}    
 ?>
