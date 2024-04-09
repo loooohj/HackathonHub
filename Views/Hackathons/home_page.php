@@ -44,7 +44,7 @@
 <div class="display-1 text-white text-center">Welcome to <span>HackathonHub</span></div>
 <div class="lead  text-light text-center fw-bold mt-2">your go-to platform for <br> <span>discovering</span> and <span>organizing</span> hackathons!</div> 
 
-<!--About us + Carousel -->
+<!--About us-->
 
 <h1 class="text-light text-center mb-5" id="about"><span>About us</span></h1>
 <div class="kont container-lg mt-1">
@@ -56,6 +56,7 @@ As a participant, explore our curated list of upcoming hackathons tailored to yo
 But <span class="fw-bold">HackathonHub</span>  isn't just for participants – it's also for organizers! If you're looking to host your own hackathon, our platform provides all the tools and resources you need to plan, promote, and manage your event seamlessly. </p>
   </div>
  </div>
+ <!--Carousel--> 
  <div class="col-md-12 col-lg-6">
  <div id="carouselExampleCaptions" class="carousel slide">
   <div class="carousel-indicators">
@@ -64,25 +65,22 @@ But <span class="fw-bold">HackathonHub</span>  isn't just for participants – i
     <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
   </div>
   <div class="carousel-inner">
+  <?php foreach($ListeHackathons as $hackathon){?>  
+    <div class="carousel-item ">
+        <img src="<?=$hackathon->img?>" class="img d-block w-100 opacity-50" alt="<?=$hackathon->name_hackathon?>">
+        <div class="carousel-caption d-none d-md-block">
+          <h5><?=$hackathon->name_hackathon?></h5>
+          <p><?=$hackathon->date?></p>
+        </div>
+      </div>
+  <?php
+  }?>
+
     <div class="carousel-item active">
-      <img src="IMAGES/hack1.jpg" class="img d-block w-100 opacity-50" alt="...">
-      <div class="carousel-caption d-none d-md-block">
-        <h5>Code in the dark 2.0</h5>
-        <p>Saturday, 2 DEC 2023</p>
-      </div>
-    </div>
-    <div class="carousel-item">
-      <img src="IMAGES/hack2.jpg" class="img d-block w-100 opacity-50" alt="...">
-      <div class="carousel-caption d-none d-md-block">
-        <h5>Code Hunters</h5>
-        <p>Saturday, 17 FEB 2024</p>
-      </div>
-    </div>
-    <div class="carousel-item">
       <img src="IMAGES/hack3.jpg" class="img d-block w-100 opacity-50" alt="...">
       <div class="carousel-caption d-none d-md-block">
         <h5>Be Battle Contest</h5>
-        <p>Sunday, 2 DEC 2023</p>
+        <p>2/12/2023</p>
       </div>
     </div>
   </div>
@@ -178,14 +176,14 @@ But <span class="fw-bold">HackathonHub</span>  isn't just for participants – i
         <h1 class="modal-title fs-5 text-white text-center" id="exampleModalLabel">Sign In</h1>
       </div>
       <div class="modal-body">
-  <form action="sign_in.php" method="post">
+  <form method="post" action="index.php?controller=user&action=sign_in">
   <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label text-white">Email address</label>
     <input type="email" class="form-control" id="exampleInputEmail1" name="email">
   </div>
   <div class="mb-3">
     <label for="exampleInputPassword1" class="form-label text-white">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1">
+    <input type="password" class="form-control" id="exampleInputPassword1" name="password">
   </div>
   <div class="mb-3 form-check">
     <input type="checkbox" class="form-check-input" id="exampleCheck1">
@@ -210,7 +208,7 @@ But <span class="fw-bold">HackathonHub</span>  isn't just for participants – i
         <h1 class="modal-title fs-5 text-white text-center" id="exampleModalLabel">Sign Up</h1>
       </div>
       <div class="modal-body">
-    <form action="add_user.php" method="post">
+    <form action="index.php?controller=user&action=sign_up" method="post">
      <div class="mb-3">
     <label for="first_name" class="form-label text-white">First Name</label>
     <input type="text" class="form-control" id="first_name" name="first_name">

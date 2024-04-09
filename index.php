@@ -1,13 +1,15 @@
 <?php
+$ROOT = __DIR__;
+$DS = DIRECTORY_SEPARATOR;
 if(!empty($_GET["controller"]))
 $controller=$_GET["controller"];
 else
-$controller="home";
+$controller="hackathon";
 if(!empty($_GET["action"]))
 $action=$_GET["action"];
-else
-$action="page";
-$file=__DIR__.DIRECTORY_SEPARATOR."Controller".DIRECTORY_SEPARATOR.ucfirst($controller)."Controller.php";
-include_once $file;
-        
+else 
+$action="read3Hackathons";
+$file=$ROOT.$DS."Controller".$DS.ucfirst($controller)."Controller.php";
+require_once $file;        
+
 ?>

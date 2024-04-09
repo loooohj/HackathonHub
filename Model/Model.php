@@ -1,9 +1,9 @@
 <?php
-include_once "../Configuration/Database.php";
+include_once "Configuration/Database.php";
 class Model{
     protected $table;
     protected $clePrimaire;
-    protected static $db=$null;
+    protected static $db=null;
     public static function Connection(){
         if(self::$db==null){
         try{
@@ -23,7 +23,7 @@ class Model{
         $liste=[];
         try{
        $resultat=$db->query($sql);
-       $liste=$resultat->fetchAll(PDO::FETCH_CLASS,ucfirst($this->table));
+       $liste=$resultat->fetchAll(PDO::FETCH_CLASS,get_class($this));
         }catch(PDOException $exception){
             die($exception->getMessage());
         }
@@ -64,13 +64,13 @@ class Model{
 
     public function add($ligne){
         $db=self::Connection();
-        $sql="INSERT INTO {$this->table} ("; /*:id_hackathon,:id_user,:name_hackathon,:date,:place,:max_num_participants,:img,:start_time,:end_time,:num_days)";*/
+        $sql="INSERT INTO {$this->table} (";
         foreach($ligne as $key=>$value) $sql.=$key.",";
         $sql=rtrim($sql,",").") VALUES(";
         foreach($ligne as $key=>$value) $sql.=":".$key.",";
         $sql=rtrim($sql,",").")";
         $requete=$db->prepare($sql);
-        foreach($ligne as $key=>$value)         $requete->bindParam(":{$key}",$value);     
+        foreach($ligne as $key=>$value)         $requete->bindValue($key,$value);     
         try{
             $resultat=$requete->execute();
             if($resultat) return $db->LastInsertId();
@@ -80,6 +80,8 @@ class Model{
             die($exception->getMessage());
         }
     }
+
+
 }
 
 ?>

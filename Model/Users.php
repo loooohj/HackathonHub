@@ -102,7 +102,37 @@ class Users extends Model{
         $db=null;
     }
     }
-
     
+    public function sign_in($email,$password){
+    $db=self::Connection();
+    $email=$db->quote($email);
+    $password=$db->quote($password);
+    $sql="SELECT * FROM users WHERE email_address=$email AND password=$password";
+    try{
+    $resultat = $db->query($sql);
+    return $resultat;
+    }
+    catch(PDOException $exception){
+        die($exception->getMessage());
+    }
+    }
+
+    public function getByEmail($email){
+        $db=self::Connection();
+        $email=$db->quote($email);
+        $sql="SELECT * FROM users WHERE email_address=$email";
+        try{
+            $resultat=$db->query($sql);
+            if($resultat->rowCount()==1){ 
+                return false;
+            }    
+            return true;
+        }catch(PDOException $exception){
+            die($exception->getMessage());
+        }
+        finally{
+            $resultat->closeCursor();
+        }
+    }
 }
 ?>

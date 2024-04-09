@@ -1,6 +1,5 @@
 <?php
 include_once "Model.php";
-$model=new Model();
 class Hackathons extends Model{
     private $id_hackathon;
     private $id_user;
@@ -99,7 +98,7 @@ class Hackathons extends Model{
     }
     
 public function update_hackathon($name_hackathon,$date,$place,$max_num_participants,$img,$start_time,$end_time,$num_days){
-    $db=connexionDB();
+    $db=self::Connection();
     $sql="UPDATE hackathons SET name_hackathon=:name_hackathon, date=:date, place=:place, max_num_participants=:max_num_participants, img=:img, start_time=:start_time, end_time=:end_time, num_days=:num_days";
     $requete=$db->prepare($sql);    
     $requete->bindParam(":name_hackathon",$name_hackathon);    
@@ -120,6 +119,23 @@ public function update_hackathon($name_hackathon,$date,$place,$max_num_participa
         $db=null;
     }
 }
- 
+
+public function get_3hackathons(){
+    $db=self::Connection();
+    $sql= "SELECT * FROM hackathons LIMIT 1";
+    $Liste=[];
+    try{
+        $resultat=$db->query($sql);
+        $Liste=$resultat->fetchAll(PDO::FETCH_CLASS,ucfirst($this->table));
+    }catch(PDOException $exception){
+        die($exception->getMessage());
+    }
+    finally{
+        $resultat->closeCursor();
+    }
+    return $Liste;
 }
+
+
+ }
 ?>
