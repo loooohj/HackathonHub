@@ -32,7 +32,7 @@ catch(PDOException $exception){
       <input class="form-control me-2 col-sm-12" type="search" placeholder="the Hackathon you are looking for" aria-label="Search">
       <button class="btn btn-outline-success" type="submit">Search</button>
     </form>
-    <button type="button" class="btn btn-secondary btn-lg"><a href="index.php?controller=hackathon&action=createHackathon1" class="text-decoration-none text-light">Click here to create your own Hackathon</a></button>
+    <button type="button" class="btn btn-secondary btn-lg"><a href="index.php?controller=hackathon&action=createHackathon1" class="text-decoration-none text-light">Organize your own Hackathon</a></button>
     <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>

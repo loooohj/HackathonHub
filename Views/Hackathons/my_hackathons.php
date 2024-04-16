@@ -66,10 +66,10 @@ foreach($ListeHackathons as $Hackathon){
     <h5 class="card-title text-center"><?=$Hackathon->name_hackathon?></h5>
     <p class="card-text text-center text-light"><small><?=$Hackathon->date?>, <?=$Hackathon->place?></small></p>
     <div class="d-flex">    
-    <a href="index.php?controller=hackathon&action=updateMyhackathon1&id_hackathon=<?=$Hackathon->id_hackathon?>"><button type="button" class="btn btn-success">Update</button></a>    
-    <a href="index.php?controller=hackathon&action=deleteMyhackathon&id_hackathon=<?=$Hackathon->id_hackathon?>"><button type="button" class="btn btn-danger">Delete</button>
-    <a href="index.php?controller=hackathon&action=readHackathonByid&id_hackathon=<?=$Hackathon->id_hackathon?>"><button type="button" class="btn btn-info">Details</button></a>
-    <button type="button" class="btn btn-warning" style="height:5%">Participants</button>
+    <a href="index.php?controller=hackathon&action=updateMyhackathon1&id_hackathon=<?=$Hackathon->id_hackathon?>"><button type="button" class="btn btn-outline-success">Update</button></a>    
+    <a href="index.php?controller=hackathon&action=deleteMyhackathon&id_hackathon=<?=$Hackathon->id_hackathon?>"><button type="button" class="btn btn-outline-danger">Delete</button>
+    <a href="index.php?controller=hackathon&action=readHackathonByid&id_hackathon=<?=$Hackathon->id_hackathon?>"><button type="button" class="btn btn-outline-info">Details</button></a>
+    <a href="index.php?controller=participation&action=readParticipants&id_hackathon=<?=$Hackathon->id_hackathon?>"><button type="button" class="btn btn-outline-warning" style="">Participants</button></a>
     </div>
 
 </div>

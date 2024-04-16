@@ -40,5 +40,11 @@ switch($action){
             include_once "Views/Participations/participate.php";
             break;
             }
+    case "readParticipants":
+            $id= $_GET["id_hackathon"];
+            $p=new Participations();
+            $ListeParticipants=$p->getParticipantsByid($id);
+            include_once "Views/Participations/participants.php";
+             break;        
 }
 ?>    

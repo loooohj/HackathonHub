@@ -24,10 +24,10 @@ class Participations extends Model{
     }
 
     public function getId_hackathon(){
-        return $this->first_id_hackathon;
+        return $this->id_hackathon;
     }
     public function setId_hackathon($id_hackathon){
-        $this->first_id_hackathon=$id_hackathon;
+        $this->id_hackathon=$id_hackathon;
     }
 
     public function getTeam_name(){
@@ -67,5 +67,21 @@ class Participations extends Model{
         finally{
             $resultat->closeCursor();
         }
+    }
+
+    public function getParticipantsByid($id){
+        $db=self::Connection();
+        $sql="SELECT * FROM participations  WHERE id_hackathon=$id";
+        $liste=[];
+        try{
+            $resultat=$db->query($sql);
+            $liste=$resultat->fetchAll(PDO::FETCH_OBJ);
+        }catch(PDOException $exception){
+            die($exception->getMessage());
+        }
+        finally{
+            $resultat->closeCursor();
+        }
+        return $liste;
     }
 }
