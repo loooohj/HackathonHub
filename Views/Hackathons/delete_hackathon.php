@@ -1,4 +1,5 @@
 <?php
-if($resultat) echo "<p>Deleted successfully</p>";
-else echo "<p>Hackathon not found!</p>";
+if($resultat)
+header('location:index.php?controller=hackathon&action=readMyhackathons');
+else echo "Error!";
 ?>

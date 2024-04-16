@@ -7,13 +7,13 @@ $sql="SELECT * FROM users WHERE email_address=$email";
 try{
     $resultat=$db->query($sql);
     $user=$resultat->fetch();
-    $_SESSION["email"]=$user["name"];
+    $_SESSION["name"]=$user["name"];
     $_SESSION["first_name"]=$user["first_name"];
+    $_SESSION["id"]=$user["id"];
 }
 catch(PDOException $exception){
     die($exception->getMessage());
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -38,16 +38,16 @@ catch(PDOException $exception){
     </button>
     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
       <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasNavbarLabel"> <?=ucfirst($_SESSION["email"])?> <?=ucfirst($_SESSION["first_name"])?> </h5>
+        <h5 class="offcanvas-title" id="offcanvasNavbarLabel"> <?=ucfirst($_SESSION["name"])?> <?=ucfirst($_SESSION["first_name"])?> </h5>
         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
       <div class="offcanvas-body">
         <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Hackathons</a>
+            <a class="nav-link active" aria-current="page" href="index.php?controller=hackathon&action=readHackathons">Hackathons</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">My hackathons</a>
+            <a class="nav-link" href="index.php?controller=hackathon&action=readMyhackathons">My hackathons</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Log out</a>
@@ -69,27 +69,39 @@ catch(PDOException $exception){
       </div>
     </div>
 </nav>
-<h2 class="text-light mb-3">Welcome <?=ucfirst($_SESSION["email"])?> <?= ucfirst($_SESSION["first_name"])?></h2>
+<h2 class="text-light mb-3 text-center mt-5">Welcome, Dear <span>&#128159;<?=ucfirst($_SESSION["name"])?></span><br>Hope you're excited to take part in the hackathon that catches your eye ! </h2>
 
 <!--Hackathons cards-->
-<div class="container-fluid ">
+<div class="container-fluid">
+  <div class="row">
 <?php
 /*count($ListeHackathons);*/ 
 foreach($ListeHackathons as $Hackathon){
   ?>
-  <div class="col-lg-3 col-sm-12">
-  <div class="card">
-  <img src="<?=$Hackathon->img?>" class="card-img-top" alt="<?=$Hackathon->name_hackathon?>">
+  <div class=" col-lg-3 col-sm-12 rounded-5 mt-5 position-relative">
+  <div class="card border-top-0 border-start-0 border-end-0 border-5">
+  <img src="<?= $Hackathon->img ?>" class="card-img-top rounded-top " alt="<?=$Hackathon->name_hackathon?>" >
   <div class="card-body">
     <h5 class="card-title text-center"><?=$Hackathon->name_hackathon?></h5>
-    <p class="card-text text-center"><small class="text-body-secondary"><?=$Hackathon->date?>, <?=$Hackathon->place?></small></p>
+    <p class="card-text text-center text-light"><small><?=$Hackathon->date?>, <?=$Hackathon->place?></small></p>
   </div>
   </div>
+  <a class="viewdetails text-light position-absolute border border-white rounded" href="index.php?controller=hackathon&action=readHackathonByid&id_hackathon=<?=$Hackathon->id_hackathon?>">View details</a>
   </div>
-<?php
+  <?php
 }
 ?>
 </div>
+</div>
+<nav aria-label="Page navigation example" class="pagination mt-5">
+  <ul class="pagination">
+    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+    <li class="page-item"><a class="page-link" href="#">1</a></li>
+    <li class="page-item"><a class="page-link" href="#">2</a></li>
+    <li class="page-item"><a class="page-link" href="#">3</a></li>
+    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+  </ul>
+</nav>
 <?php
 include_once "Views/Includes/Footer.php";
 ?>

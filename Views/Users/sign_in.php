@@ -1,8 +1,6 @@
 <?php
     if($resultat->rowCount()==1){ 
-        session_start();
-        $_SESSION["email"]=$email;
-        $_SESSION["first_name"]=$first_rname;
+        /*nheb yekhou first_name */
         header('location:index.php?controller=hackathon&action=readHackathons');
     }
 else{

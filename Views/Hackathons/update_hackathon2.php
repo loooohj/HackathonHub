@@ -1,4 +1,5 @@
 <?php
-if($resultat) echo "Updated successfully!";
-else echo "Failure!";
+if($resultat)
+header('location:index.php?controller=hackathon&action=readMyhackathons');
+else echo "Error!";
 ?>

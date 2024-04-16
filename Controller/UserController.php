@@ -7,6 +7,9 @@ switch($action){
    $password=$_POST["password"];
    $u=new Users();
    $resultat=$u->sign_in($email,$password);
+   session_start();
+   $_SESSION["email"]=$email;
+   /*appel methode li tgeti id  */
    include_once "Views/Users/sign_in.php";
    break;
 
@@ -39,8 +42,7 @@ switch($action){
     break;
     
  }
-    ?>
-<?php   
-}
-}
 ?>
+<?php   
+}       
+}

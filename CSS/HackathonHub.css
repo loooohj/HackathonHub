@@ -1,8 +1,8 @@
-body{
+body,.pagination{
     background-color: #020714/*#010f30*/;
 
 }
-span{
+span,.card-title, .page-link{
     color:#B08FD6/*#8b62bd*/;
     
 }
@@ -24,7 +24,7 @@ span{
 /*.kont{
     margin-top:19.5%;
 }*/
-.img{
+img{
     height:336px;
     margin-bottom: 2%;
 }
@@ -35,4 +35,30 @@ span{
 html{
     scroll-padding: 7rem;
   }
+  .card-body{
+    background-color:#020714;
+}
+
+ .pagination{
+    margin-left: 25%;
+ }
+ .viewdetails{
+    top:0;
+    left:0;
+    right: 3%;;
+    height: 100%;
+    padding-top:50% ;
+    padding-left: 40%;
+    background-color: rgba(0,0,0,0.7);
+    display: none;
+    transition-duration: all 2s;
+   
+ }
+ .position-relative:hover .viewdetails{
+   display: inline-block;
+ }
+ /*.CreateHackathonForm{
+    margin-top: 10%;
+ }*/
+
  

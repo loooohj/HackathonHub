@@ -65,7 +65,23 @@ But <span class="fw-bold">HackathonHub</span>  isn't just for participants – i
     <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
   </div>
   <div class="carousel-inner">
-  <?php foreach($ListeHackathons as $hackathon){?>  
+  <?php
+  $isFirst=true;
+  foreach($ListeHackathons as $hackathon){ 
+    if($isFirst){
+      ?> 
+     <div class="carousel-item active ">
+        <img src="<?=$hackathon->img?>" class="img d-block w-100 opacity-50" alt="<?=$hackathon->name_hackathon?>">
+        <div class="carousel-caption d-none d-md-block">
+          <h5><?=$hackathon->name_hackathon?></h5>
+          <p><?=$hackathon->date?></p>
+        </div>
+      </div> 
+    <?php 
+   $isFirst=false;
+   continue; 
+   }
+    ?>
     <div class="carousel-item ">
         <img src="<?=$hackathon->img?>" class="img d-block w-100 opacity-50" alt="<?=$hackathon->name_hackathon?>">
         <div class="carousel-caption d-none d-md-block">
@@ -75,14 +91,6 @@ But <span class="fw-bold">HackathonHub</span>  isn't just for participants – i
       </div>
   <?php
   }?>
-
-    <div class="carousel-item active">
-      <img src="IMAGES/hack3.jpg" class="img d-block w-100 opacity-50" alt="...">
-      <div class="carousel-caption d-none d-md-block">
-        <h5>Be Battle Contest</h5>
-        <p>2/12/2023</p>
-      </div>
-    </div>
   </div>
   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>

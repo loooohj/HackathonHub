@@ -59,31 +59,7 @@ class Users extends Model{
         $this->telephone_number=$telephone_number;
         $this->password=$password;
     }
-
-    
-    /*public function add_user($name,$first_name,$email,$tel,$password){
-        $db=connexionDB();
-        $sql="INSERT INTO users(name,first_name,email_address,telephone_number,password) VALUES(:name,:first_name,:email,:tel,:password)";
-       $requete=$db->prepare($sql);
-       $requete->bindParam(":name",$name);
-       $requete->bindParam(":first_name",$first_name);
-       $requete->bindParam(":email",$email);
-       $requete->bindParam(":tel",$tel);
-       $requete->bindParam(":password",$password);
-        try{
-            $resultat=$requete->execute();
-            if($resultat) return $db->LastInsertID();
-            return false;
-        }
-        catch(PDOException $exception){
-            die($exception->getMessage());
-        }
-        finally{
-            $db=null;
-        }
-    }*/
-
-    public function update_user($name,$first_name,$email_addess,$telephone_number,$password){
+    /*public function update_user($name,$first_name,$email_addess,$telephone_number,$password){
     $db=connexionDB();
     $sql="UPDATE users SET name=:name,first_name=:first_name,email_addess=:email_addess,telephone_number=:telephone_number,password=:password";
     $requete=$db->prepare($sql);
@@ -101,7 +77,8 @@ class Users extends Model{
     finally{
         $db=null;
     }
-    }
+    }*/
+    
     
     public function sign_in($email,$password){
     $db=self::Connection();
