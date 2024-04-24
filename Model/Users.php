@@ -59,27 +59,7 @@ class Users extends Model{
         $this->telephone_number=$telephone_number;
         $this->password=$password;
     }
-    /*public function update_user($name,$first_name,$email_addess,$telephone_number,$password){
-    $db=connexionDB();
-    $sql="UPDATE users SET name=:name,first_name=:first_name,email_addess=:email_addess,telephone_number=:telephone_number,password=:password";
-    $requete=$db->prepare($sql);
-    $requete->bindParam(":name",$name);
-    $requete->bindParam(":first_name",$first_name);
-    $requete->bindParam(":email",$email);
-    $requete->bindParam(":tel",$tel);
-    $requete->bindParam(":password",$password);
-    try{
-        $resultat=$requete->execute();
-        return $resultat;
-    }catch(PDOException $exception){
-        die($exception->getMessage());
-    }
-    finally{
-        $db=null;
-    }
-    }*/
-    
-    
+        
     public function sign_in($email,$password){
     $db=self::Connection();
     $email=$db->quote($email);
@@ -111,5 +91,24 @@ class Users extends Model{
             $resultat->closeCursor();
         }
     }
+
+    
+public function getByhack_user($id_hackathon,$id_user){
+    $db=self::Connection();
+    $sql="SELECT * FROM users WHERE id_user=$id_user AND id_hackathon=$id_hackathon";
+    try{
+        $resultat=$db->query($sql);
+        if($resultat->rowCount()==1){ 
+            $record=$resultat->fetchObject();
+            return $record;
+        }    
+        return false;
+    }catch(PDOException $exception){
+        die($exception->getMessage());
+    }
+    finally{
+        $resultat->closeCursor();
+    }
+}
 }
 ?>

@@ -11,5 +11,4 @@ else
 $action="read3Hackathons";
 $file=$ROOT.$DS."Controller".$DS.ucfirst($controller)."Controller.php";
 require_once $file;        
-
 ?>

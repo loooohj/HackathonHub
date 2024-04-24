@@ -1,20 +1,3 @@
-<?php
-include_once "connexion.php";
-$db=connexionDB();
-session_start();
-$email=$db->quote($_SESSION["email"]);
-$sql="SELECT * FROM users WHERE email_address=$email";
-try{
-    $resultat=$db->query($sql);
-    $user=$resultat->fetch();
-    $_SESSION["name"]=$user["name"];
-    $_SESSION["first_name"]=$user["first_name"];
-    $_SESSION["id"]=$user["id"];
-}
-catch(PDOException $exception){
-    die($exception->getMessage());
-}
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,14 +8,8 @@ catch(PDOException $exception){
     <link href="CSS/HackathonHub.css" rel="stylesheet"> 
 </head>
 <body>
-<!--Navbar-->
 <nav class="bg-secondary bg-opacity-10 navbar bg-body-tertiary border border-secondary border-start-0">
   <a class="navbar-brand" href="#"><span>HackathonHub</span></a>
-    <form class="d-flex " role="search">
-      <input class="form-control me-2 col-sm-12" type="search" placeholder="the Hackathon you are looking for" aria-label="Search">
-      <button class="btn btn-outline-success" type="submit">Search</button>
-    </form>
-    <button type="button" class="btn btn-secondary btn-lg"><a href="index.php?controller=hackathon&action=createHackathon1" class="text-decoration-none text-light">Organize your own Hackathon</a></button>
     <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -72,42 +49,30 @@ catch(PDOException $exception){
       </div>
     </div>
 </nav>
-<h2 class="text-light mb-3 text-center mt-5">Welcome, Dear <span>&#128159;<?=ucfirst($_SESSION["name"])?></span><br>Hope you're excited to take part in the hackathon that catches your eye ! </h2>
+<p class="text-light display-5 text-center bg-secondary bg-opacity-10 border border-secondary ">List of Participations</p>
 
-<!--Hackathons cards-->
-<div class="container-fluid">
-  <div class="row">
-<?php
-/*count($ListeHackathons);*/ 
-foreach($ListeHackathons as $Hackathon){
-  ?>
-  <div class=" col-lg-3 col-sm-12 rounded-5 mt-5 position-relative">
-  <div class="card border-top-0 border-start-0 border-end-0 border-5">
-  <img src="<?= $Hackathon->img ?>" class="card-img-top rounded-top " alt="<?=$Hackathon->name_hackathon?>" >
-  <div class="card-body">
-    <h5 class="card-title text-center"><?=$Hackathon->name_hackathon?></h5>
-    <p class="card-text text-center text-light"><small><?=$Hackathon->date?>, <?=$Hackathon->place?></small></p>
-  </div>
-  </div>
-  <a class="viewdetails text-light position-absolute border border-white rounded" href="index.php?controller=hackathon&action=readHackathonByid&id_hackathon=<?=$Hackathon->id_hackathon?>">View details</a>
-  </div>
-  <?php
-}
-?>
-</div>
-</div>
-<nav aria-label="Page navigation example" class="pagination mt-5">
-  <ul class="pagination">
-    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-    <li class="page-item"><a class="page-link" href="#">1</a></li>
-    <li class="page-item"><a class="page-link" href="#">2</a></li>
-    <li class="page-item"><a class="page-link" href="#">3</a></li>
-    <li class="page-item"><a class="page-link" href="#">Next</a></li>
-  </ul>
-</nav>
-<?php
-include_once "Views/Includes/Footer.php";
-?>
+<table class="table table-striped mt-5">
+<thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Hackathon</th>
+      <th scope="col">Team name</th>
+      <th scope="col">Number</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+  <?php foreach($ListeParticipations as $Participant){?>
+    <tr>
+      <th scope="row"><?=$Participant->id_participation?></th>
+      <td><?=$Participant->id_hackathon?></td>
+      <td><?=$Participant->team_name?></td>
+      <td><?=$Participant->num_team_members?></td>
+      <td>   <a href="index.php?controller=participation&action=deleteMyparticipation&id_participation=<?=$Participant->id_participation?>"><button type="button" class="btn btn-outline-danger me-5">Delete</button></a><a href="index.php?controller=participation&action=updateMyparticipation1&id_participation=<?=$Participant->id_participation?>"><button type="button" class="btn btn-outline-success ">Update</button></a> </td>
+      </tr>
+    <?php }?>
+  </tbody>
+</table>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>        
 </body>
-</html>
+</html>    

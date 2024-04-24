@@ -84,4 +84,20 @@ class Participations extends Model{
         }
         return $liste;
     }
+
+    public function get_myparticipations($id){
+        $db=self::Connection();
+        $sql= "SELECT * FROM participations WHERE id_user=$id";
+        $Liste=[];
+        try{
+            $resultat=$db->query($sql);
+            $Liste=$resultat->fetchAll(PDO::FETCH_OBJ);
+        }catch(PDOException $exception){
+            die($exception->getMessage());
+        }
+        finally{
+            $resultat->closeCursor();
+        }
+        return $Liste;
+    }
 }

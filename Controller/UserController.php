@@ -9,7 +9,6 @@ switch($action){
    $resultat=$u->sign_in($email,$password);
    session_start();
    $_SESSION["email"]=$email;
-   /*appel methode li tgeti id  */
    include_once "Views/Users/sign_in.php";
    break;
 
@@ -44,5 +43,11 @@ switch($action){
  }
 ?>
 <?php   
-}       
+}
+case "deleteUser":
+    $u=new Users();
+    $id=(int)$_GET["id_user"];
+    $resultat=$u->delete($id);  
+    include_once "Views/Users/delete_user.php";
+    break;       
 }
