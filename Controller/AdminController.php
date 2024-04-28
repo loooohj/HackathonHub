@@ -8,6 +8,7 @@ switch($action){
         $password=$_POST["password"];
         $a=new Admins();
         $resultat=$a->sign_in($login,$password);
+        $resultat=$a->update_last_login($login);
         session_start();
         $_SESSION["login"]=$login;
         include_once "Views/Admins/sign_in.php";

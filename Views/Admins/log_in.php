@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css">
     <link rel="stylesheet" href="fontawesome/css/all.css">
 </head>
-<body> 
+<body>    
 <center>
 <div class="card  mb-3 shadow bg-primary bg-opacity-10 border border-primary border-opacity-25" style="width: 60rem; height:40rem;">
 <img src="IMAGES/admin.jpg" style="width:300px; border-radius:100px;" class=" mx-auto d-block" alt="admin">  

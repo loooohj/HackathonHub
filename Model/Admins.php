@@ -66,4 +66,16 @@ class Admins extends Model{
             die($exception->getMessage());
         }
         }
+    public function update_last_login($log){
+            $db=self::Connection();
+            $sql = "UPDATE admins SET last_login=NOW() WHERE login='$log'";
+            try{
+                $resultat =$db->query($sql);
+                return $resultat;
+            }
+            catch(PDOException $ex){
+                die($ex->getMessage());
+            }
+
+    }    
 }

@@ -4,42 +4,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard Admins</title>
+    <title>Dashboard History</title>
     <link href="CSS/Admin.css" rel="stylesheet"> 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 <body>
-    <div class="d-flex ">
+  
+  <div class="d-flex ">
     <?php include_once "Views/Includes/Navbar_admin.php"; ?>
-<div class="bg-body-tertiary w-75">
-    <p class="display-4 ms-5 mt-5">Admins list</p>
-    <table class="table table-striped mt-5">
+    <div class="bg-body-tertiary w-75">
+      <p class="display-4 ms-5 mt-5"> <?=ucfirst($user->name)?>'s History
+      <a href="index.php?controller=history&action=deletehistory&id_user=<?=$user->id?>"><button type="button" class="btn btn-outline-danger">Delete all</button></a> 
+      </p>
+<table class="table table-striped mt-5">
 <thead>
-    <tr>
-      <th scope="col">ID</th>
-      <th scope="col">Name</th>
-      <th scope="col">Login</th>
-      <th scope="col">Email_address</th>
-      <th scope="col">Action</th>
-      <th scope="col">Last Login</th>
+<tr>
+      <th scope="col">Activity</th>
+      <th scope="col">Date</th>
     </tr>
   </thead>
   <tbody>
-      <?php foreach($ListeAdmins as $admin){?>  
+      <?php foreach($ListeHistory as $history){?>  
     <tr>
-      <th scope="row"><?=$admin->admin_id?></th>
-      <td><?=$admin->admin_name?></td>
-      <td><?=$admin->login?></td>
-      <td><?=$admin->admin_email?></td>
-      <td></td>
-      <td><?=$admin->last_login?></td>
-      <td></td>
+      <th scope="row"><?=$history->activity?></th>
+      <td><?=$history->date?></td>
     </tr>
     <?php }?>
   </tbody>  
-</table> 
+</table>
 </div>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>        
 </body>
-</html>    
+</html>

@@ -1,12 +1,14 @@
 <?php
 include_once "Model.php";
 class Histories extends Model{
+    private $id_history;
     private $id_user;
     private $activity;
 
     private $date;
-
+    
     protected $table ="user_history";
+    protected $clePrimaire="id_user";
     
     public function getId_user(){
         return $this->id_user;
@@ -52,6 +54,22 @@ class Histories extends Model{
         catch(PDOException $exception){
             die($exception->getMessage());
         }
+    }
+
+    public function get_history($id){
+    $db=self::Connection();
+    $sql= "SELECT * FROM user_history WHERE id_user=$id";
+    $Liste=[];
+    try{
+        $resultat=$db->query($sql);
+        $Liste=$resultat->fetchAll(PDO::FETCH_OBJ);
+    }catch(PDOException $exception){
+        die($exception->getMessage());
+    }
+    finally{
+        $resultat->closeCursor();
+    }
+    return $Liste;
     }
 
 }

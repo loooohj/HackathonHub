@@ -11,7 +11,7 @@
 <?php session_start();
     $id=$_SESSION["id"];?>
     <div class="CreateHackathonForm card text-bg-dark  ms-5 w-75 mt-4  px-2">
-        <form class="row  align-items-center" action="index.php?controller=hackathon&action=updateMyhackathon2&id_hackathon=<?=$h->id_hackathon?>" method=post>
+        <form class="row  align-items-center" action="index.php?controller=hackathon&action=updateMyhackathon2&id_hackathon=<?=$h->id_hackathon?>&id_user=<?=$id?>" method=post>
             <div class="col-md-4 me-5 mt-4 ms-5">
               <label for="name_hackathon" class="form-label">Name</label>
               <input type="text" class="form-control" id="name_hackathon" name="name_hackathon" value="<?=$h->name_hackathon?>">

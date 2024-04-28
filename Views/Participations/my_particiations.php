@@ -8,6 +8,7 @@
     <link href="CSS/HackathonHub.css" rel="stylesheet"> 
 </head>
 <body>
+<?=$id_user=$_SESSION["id"];?>
 <nav class="bg-secondary bg-opacity-10 navbar bg-body-tertiary border border-secondary border-start-0">
   <a class="navbar-brand" href="#"><span>HackathonHub</span></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
@@ -68,7 +69,7 @@
       <td><?=$Participant->id_hackathon?></td>
       <td><?=$Participant->team_name?></td>
       <td><?=$Participant->num_team_members?></td>
-      <td>   <a href="index.php?controller=participation&action=deleteMyparticipation&id_participation=<?=$Participant->id_participation?>"><button type="button" class="btn btn-outline-danger me-5">Delete</button></a><a href="index.php?controller=participation&action=updateMyparticipation1&id_participation=<?=$Participant->id_participation?>"><button type="button" class="btn btn-outline-success ">Update</button></a> </td>
+      <td>   <a href="index.php?controller=participation&action=deleteMyparticipation&id_participation=<?=$Participant->id_participation?>&id_hackathon=<?=$Participant->id_hackathon?>&id_user=<?=$id_user?>"><button type="button" class="btn btn-outline-danger me-5">Delete</button></a><a href="index.php?controller=participation&action=updateMyparticipation1&id_participation=<?=$Participant->id_participation?>"><button type="button" class="btn btn-outline-success ">Update</button></a> </td>
       </tr>
     <?php }?>
   </tbody>

@@ -14,7 +14,7 @@
     ?>
     <img src="<?=$image?>" class="card-img-top img-thumbnail rounded mx-auto d-block " style="height: 550px;width:80%;" alt="<?=$image?>">
     <div class="card bg-dark p-5" >
-        <form action="index.php?controller=participation&action=participate2" method=post>
+        <form action="index.php?controller=participation&action=participate2&id_user=<?=$id_user?>&id_hackathon=<?=$id?>" method=post>
         <input type="hidden" value="<?=$id?>" name="id">
         <input type="hidden" value="<?=$id_user?>" name="id_user">
     <div class="row align-items-center">
@@ -25,7 +25,7 @@
     <div class="col-auto ms-5">
     <label for="members" class="text-light">The number of team members</label>
     <input type="number" min="<?=$min?>" max="<?=$max?>" class="form-control" id="members" name="members">
-    </div>
+    </div> 
     </div>
     <div class="col-auto">
     <button type="submit" class="nav-link sign border border-white rounded p-2 text-center m-5" href="">Confirm</button>

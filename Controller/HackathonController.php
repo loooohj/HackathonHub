@@ -33,10 +33,11 @@ else{
     $max_num_members=(int)$_POST["max_num_members"];
     $min_num_members=(int)$_POST["min_num_members"];
     $descriptive_text=$_POST["descriptive_text"];
+    $id_user=(int)$_GET["id_user"];
     $h=new Hackathons();
     $his=new Histories();
     $resultat=$h->add(["id_user"=>$id,"name_hackathon"=>$name_hackathon,"date"=>$date,"place"=>$place,"max_num_teams"=>$max_num_teams,"img"=>$img,"start_time"=>$start_time,"end_time"=>$end_time,"num_days"=>$num_days,"price"=>$price,"max_num_members"=>$max_num_members,"min_num_members"=>$min_num_members,"descriptive_text"=>$descriptive_text]);
-    $his->add_history(["id_user"=>$id,"activity"=>"Organized ".$name_hackathon." hackathon"]);
+    $his->add_history(["id_user"=>$id_user,"activity"=>"Organized ".$name_hackathon." hackathon"]);
     include_once "Views/Hackathons/create_hackathon.php";
     break;
      }
@@ -96,8 +97,9 @@ case "updateMyhackathon2":
     $id_hackathon=$_GET["id_hackathon"];
     $h=new Hackathons();
     $his=new Histories();
+    $id_user=(int)$_GET["id_user"];
     $resultat=$h->update(["name_hackathon"=>$name_hackathon,"date"=>$date,"place"=>$place,"max_num_teams"=>$max_num_teams,"img"=>$img,"start_time"=>$start_time,"end_time"=>$end_time,"num_days"=>$num_days,"price"=>$price,"max_num_members"=>$max_num_members,"min_num_members"=>$min_num_members,"descriptive_text"=>$descriptive_text],$id_hackathon);
-    $his->add_history(["id_user"=>$id,"activity"=>"Updated ".$name_hackathon." hackathon"]);
+    $his->add_history(["id_user"=>$id_user,"activity"=>"Updated ".$name_hackathon." hackathon"]);
     include_once "Views/Hackathons/update_hackathon2.php";
     break;
 
@@ -106,9 +108,10 @@ case "deleteMyhackathon":
     $h=new Hackathons();
     $his=new Histories();
     $id=(int)$_GET["id_hackathon"];
+    $id_user=(int)$_GET["id_user"];
     $ha=$h->getById($id);
     $resultat=$h->delete($id);  
-    $his->add_history(["id_user"=>$id,"activity"=>"Deleted ".$ha->name_hackathon."hackathon"]);
+    $his->add_history(["id_user"=>$id_user,"activity"=>"Deleted ".$ha->name_hackathon." hackathon"]);
     include_once "Views/Hackathons/delete_hackathon.php";
     break;  
     

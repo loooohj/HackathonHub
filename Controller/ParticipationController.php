@@ -1,6 +1,7 @@
 <?php
 include_once "Model/Participations.php";
 include_once "Model/Hackathons.php";
+include_once "Model/Histories.php";
 switch($action){
     case "participate":
         $id= $_GET["id_hackathon"];
@@ -36,8 +37,12 @@ switch($action){
         $num_team_members=$_POST["members"];
         $id_user=$_POST["id_user"];
         $id=$_POST["id"];
+        $h=new Hackathons();
+        $ha=$h->getById($id);
         $p=new Participations();
+        $his=new Histories();
         $resultat=$p->add(["team_name"=>$team_name,"num_team_members"=>$num_team_members,"id_user"=>$id_user,"id_hackathon"=>$id]);
+        $his->add_history(["id_user"=>$id_user,"activity"=>"Participated in  ".$ha->name_hackathon." hackathon"]);
         include_once "Views/Participations/participate.php";
         break;
         }
@@ -87,6 +92,8 @@ switch($action){
             break;
     case "deleteMyparticipation":
         $p=new Participations();
+        $id_user=$_GET["id_user"];
+        $id_hackathon=$_GET["id_hackathon"];
         $id=(int)$_GET["id_participation"];
         $resultat=$p->delete($id);  
         include_once "Views/Participations/delete_hackathon.php";

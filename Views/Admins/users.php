@@ -32,8 +32,9 @@
       <td><?=$user->first_name?></td>
       <td><?=$user->email_address?></td>
       <td><?=$user->telephone_number?></td>
-      <td><a href="index.php?controller=user&action=deleteUser&id_user=<?=$user->id?>"><button type="button" class="btn btn-outline-danger">Delete</button></td>
-      <td><a href="index.php?controller=user&action=deleteUser&id_user=<?=$user->id?>"><button type="button" class="btn btn-outline-warning">History</button></td>
+      <td><a href="index.php?controller=user&action=deleteUser&id_user=<?=$user->id?>"><button type="button" class="btn btn-outline-danger">Delete</button></a>
+      <a href="index.php?controller=history&action=readIdhistory&id_user=<?=$user->id?>"><button type="button" class="btn btn-outline-warning">History</button></a>
+      </td>
     </tr>
     <?php }?>
   </tbody>  

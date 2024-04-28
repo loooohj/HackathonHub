@@ -8,6 +8,9 @@
     <link href="CSS/HackathonHub.css" rel="stylesheet"> 
 </head>
 <body>
+<?php 
+$id=$_SESSION["id"]?>
+
 <!--Navbar-->
 <nav class="bg-secondary bg-opacity-10 navbar bg-body-tertiary border border-secondary border-start-0">
   <a class="navbar-brand" href="#"><span>HackathonHub</span></a>
@@ -69,8 +72,8 @@ foreach($ListeHackathons as $Hackathon){
     <h5 class="card-title text-center"><?=$Hackathon->name_hackathon?></h5>
     <p class="card-text text-center text-light"><small><?=$Hackathon->date?>, <?=$Hackathon->place?></small></p>
     <div class="d-flex">    
-    <a href="index.php?controller=hackathon&action=updateMyhackathon1&id_hackathon=<?=$Hackathon->id_hackathon?>"><button type="button" class="btn btn-outline-success">Update</button></a>    
-    <a href="index.php?controller=hackathon&action=deleteMyhackathon&id_hackathon=<?=$Hackathon->id_hackathon?>"><button type="button" class="btn btn-outline-danger">Delete</button>
+    <a href="index.php?controller=hackathon&action=updateMyhackathon1&id_hackathon=<?=$Hackathon->id_hackathon?>&id_user=<?=$id?>"><button type="button" class="btn btn-outline-success">Update</button></a>    
+    <a href="index.php?controller=hackathon&action=deleteMyhackathon&id_hackathon=<?=$Hackathon->id_hackathon?>&id_user=<?=$id?>"><button type="button" class="btn btn-outline-danger">Delete</button>
     <a href="index.php?controller=hackathon&action=readHackathonByid&id_hackathon=<?=$Hackathon->id_hackathon?>"><button type="button" class="btn btn-outline-info">Details</button></a>
     <a href="index.php?controller=participation&action=readParticipants&id_hackathon=<?=$Hackathon->id_hackathon?>"><button type="button" class="btn btn-outline-warning" style="">Participants</button></a>
     </div>
