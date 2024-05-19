@@ -5,9 +5,10 @@ include_once "Model/Histories.php";
 switch($action){
     case "participate":
         $id= $_GET["id_hackathon"];
+        $hackathon=new Hackathons();
+        $h=$hackathon->getById($id);
         $max=$_GET["max"];
         $min=$_GET["min"];
-        $image=$_GET["image"];
         session_start();
         $id_user=$_SESSION["id"];
         $p=new Participations();

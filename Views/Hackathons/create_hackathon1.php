@@ -6,7 +6,9 @@
     <title>Add hackathon</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link href="CSS/HackathonHub.css" rel="stylesheet"> 
-</head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css">
+    <script src="JS/hack.js"></script>  
+   </head>
 <body>
 <?php session_start();
     $id=$_SESSION["id"];?>
@@ -17,8 +19,10 @@
               <input type="text" class="form-control" id="name_hackathon" name="name_hackathon">
             </div>
             <div class="col-md-4 mt-4 ms-5 " >
-              <label for="img" class="form-label">Image</label>
-              <input type="text" class="form-control" id="img" name="img">
+              <label for="img" class="form-label">Poster</label>
+              <input type="file" id="ajouter_photo1" name="img">
+              <label for="ajouter_photo1" id="ajouter_photo2" onclick="ajouter()"><i class="fas fa-plus" id="plus"></i></label> 
+             <!-- <input type="text" class="form-control" id="img" name="img">-->
             </div>
             <div class="col-md-4 me-5 mt-4 ms-5">
               <label for="date" class="form-label">Date</label>

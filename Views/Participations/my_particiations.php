@@ -8,7 +8,6 @@
     <link href="CSS/HackathonHub.css" rel="stylesheet"> 
 </head>
 <body>
-<?=$id_user=$_SESSION["id"];?>
 <nav class="bg-secondary bg-opacity-10 navbar bg-body-tertiary border border-secondary border-start-0">
   <a class="navbar-brand" href="#"><span>HackathonHub</span></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">

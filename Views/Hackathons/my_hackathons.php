@@ -64,10 +64,12 @@ $id=$_SESSION["id"]?>
 <?php
 /*count($ListeHackathons);*/ 
 foreach($ListeHackathons as $Hackathon){
+  /*$imgData = base64_encode($Hackathon->img);
+  $imgSrc = 'data:image/jpeg;base64,' . $imgData;*/
   ?>
   <div class=" col-lg-3 col-sm-12 rounded-5 mt-5 position-relative">
   <div class="card border-top-0 border-start-0 border-end-0 border-5">
-  <img src="<?= $Hackathon->img ?>" class="card-img-top rounded-top " alt="<?=$Hackathon->name_hackathon?>" >
+  <img src="IMAGES/<?=$Hackathon->img?>" class="card-img-top rounded-top " alt="<?=$Hackathon->name_hackathon?>" >
   <div class="card-body">
     <h5 class="card-title text-center"><?=$Hackathon->name_hackathon?></h5>
     <p class="card-text text-center text-light"><small><?=$Hackathon->date?>, <?=$Hackathon->place?></small></p>

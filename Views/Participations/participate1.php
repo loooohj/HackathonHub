@@ -11,8 +11,10 @@
 <?php 
  
     $id_user=$_SESSION["id"];
+    /*$imgData = base64_encode($h->img);
+    $imgSrc = 'data:image/jpeg;base64,' . $imgData;*/
     ?>
-    <img src="<?=$image?>" class="card-img-top img-thumbnail rounded mx-auto d-block " style="height: 550px;width:80%;" alt="<?=$image?>">
+    <img src="IMAGES/<?=$h->img?>" class="card-img-top img-thumbnail rounded mx-auto d-block " style="height: 550px;width:80%;" alt="">
     <div class="card bg-dark p-5" >
         <form action="index.php?controller=participation&action=participate2&id_user=<?=$id_user?>&id_hackathon=<?=$id?>" method=post>
         <input type="hidden" value="<?=$id?>" name="id">

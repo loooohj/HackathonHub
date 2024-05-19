@@ -67,11 +67,13 @@ But <span class="fw-bold">HackathonHub</span>  isn't just for participants – i
   <div class="carousel-inner">
   <?php
   $isFirst=true;
-  foreach($ListeHackathons as $hackathon){ 
-    if($isFirst){
+  if($isFirst){
+    foreach($ListeHackathons as $hackathon){ 
+       /* $imgData = base64_encode($hackathon->img);
+        $imgSrc = 'data:image/jpeg;base64,' . $imgData;*/
       ?> 
      <div class="carousel-item active ">
-        <img src="<?=$hackathon->img?>" class="img d-block w-100 opacity-50" alt="<?=$hackathon->name_hackathon?>">
+        <img src="IMAGES/<?=$hackathon->img?>" class="img d-block w-100 opacity-50" alt="<?=$hackathon->name_hackathon?>">
         <div class="carousel-caption d-none d-md-block">
           <h5><?=$hackathon->name_hackathon?></h5>
           <p><?=$hackathon->date?></p>
@@ -83,7 +85,7 @@ But <span class="fw-bold">HackathonHub</span>  isn't just for participants – i
    }
     ?>
     <div class="carousel-item ">
-        <img src="<?=$hackathon->img?>" class="img d-block w-100 opacity-50" alt="<?=$hackathon->name_hackathon?>">
+        <img src="IMAGES/<?=$hackathon->img?>" class="img d-block w-100 opacity-50" alt="<?=$hackathon->name_hackathon?>">
         <div class="carousel-caption d-none d-md-block">
           <h5><?=$hackathon->name_hackathon?></h5>
           <p><?=$hackathon->date?></p>

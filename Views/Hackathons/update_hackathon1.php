@@ -17,8 +17,9 @@
               <input type="text" class="form-control" id="name_hackathon" name="name_hackathon" value="<?=$h->name_hackathon?>">
             </div>
             <div class="col-md-4 mt-4 ms-5">
-              <label for="img" class="form-label">Image</label>
-              <input type="text" class="form-control" id="img" name="img" value="<?=$h->img?>">
+              <label for="img" class="form-label">Poster</label>
+              <input type="file" id="ajouter_photo1" name="img" value="<?=$h->img?>">
+              <label for="ajouter_photo1" id="ajouter_photo2" onclick="ajouter()"><i class="fas fa-plus" id="plus"></i></label>
             </div>
             <div class="col-md-4 me-5 mt-4 ms-5">
               <label for="date" class="form-label">Date</label>
