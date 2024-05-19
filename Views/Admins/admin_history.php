@@ -12,21 +12,23 @@
   <div class="d-flex ">
     <?php include_once "Views/Includes/Navbar_admin.php"; ?>
     <div class="bg-body-tertiary w-75">
-      <p class="display-4 ms-5 mt-5"> <?=ucfirst($user->name)?>'s History
-      <a href="index.php?controller=history&action=deletehistory&id_user=<?=$user->id?>&id_admin=<?=$_SESSION["admin_id"]?>"><button type="button" class="btn btn-outline-danger">Delete all</button></a> 
+      <p class="display-4 ms-5 mt-5"> <?=ucfirst($admin['admin_name'])?>'s History
+      <a href="index.php?controller=adminhistory&action=deletehistory&id_admin=<?=$admin['admin_id']?>"><button type="button" class="btn btn-outline-danger">Delete all</button></a> 
       </p>
 <table class="table table-striped mt-5">
 <thead>
 <tr>
       <th scope="col">Activity</th>
       <th scope="col">Date</th>
+      <th scope="col">ID user/hackathon</th>
     </tr>
   </thead>
   <tbody>
       <?php foreach($ListeHistory as $history){?>  
     <tr>
-      <th scope="row"><?=$history->activity?></th>
-      <td><?=$history->date?></td>
+      <th scope="row"><?=$history->Activity?></th>
+      <td><?=$history->TimeStamp?></td>
+      <td><?=$history->TargetID?></td>
     </tr>
     <?php }?>
   </tbody>  

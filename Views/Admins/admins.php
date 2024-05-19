@@ -20,8 +20,8 @@
       <th scope="col">Name</th>
       <th scope="col">Login</th>
       <th scope="col">Email_address</th>
-      <th scope="col">Action</th>
       <th scope="col">Last Login</th>
+      <th scope="col">Action</th>
     </tr>
   </thead>
   <tbody>
@@ -31,9 +31,9 @@
       <td><?=$admin->admin_name?></td>
       <td><?=$admin->login?></td>
       <td><?=$admin->admin_email?></td>
-      <td></td>
       <td><?=$admin->last_login?></td>
-      <td></td>
+      <td><a href="index.php?controller=admin&action=deleteAdmin&id_admin=<?=$admin->admin_id?>"><button type="button" class="btn btn-outline-danger">Delete</button></a>
+      <a href="index.php?controller=adminhistory&action=readIdhistory&id_admin=<?=$admin->admin_id?>"><button type="button" class="btn btn-outline-warning">History</button></a></td>
     </tr>
     <?php }?>
   </tbody>  

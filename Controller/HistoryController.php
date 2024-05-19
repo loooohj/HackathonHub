@@ -1,5 +1,6 @@
 <?php
 include_once "Model/Histories.php";
+include_once "Model/Ahistories.php";
 include_once "Model/Users.php";
 switch($action){
 
@@ -14,14 +15,14 @@ break;
 
 case "deletehistory":
   $id_user=$_GET["id_user"];
+  $id_admin=(int)$_GET["id_admin"];
+  $h=new Ahistories();
   $his=new Histories();
-  $id=(int)$_GET["id_hackathon"];
-  $id_user=(int)$_GET["id_user"];
-  $ha=$h->getById($id);
-  $his=new Histories();
-  $resultat=$his->delete($id_user);
-  $his->add_history(["id_user"=>$id_user,"activity"=>"Deleted ".$ha->name_hackathon." hackathon"]);
+  $u=new Users();
+  $user=$u->getById($id_user);
+  $resultat=$his->delete_history($id_user);
+  $h->add_history(["AdminID"=>$id_admin,"Activity"=>"Deleted ".$user->name."'s history","TargetID"=>$user->id]);
   include_once "Views/Admins/delete_history.php"; 
-  break;         
+  break;      
 }
-  ?> 
+?> 

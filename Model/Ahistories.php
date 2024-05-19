@@ -1,48 +1,50 @@
 <?php
 include_once "Model.php";
-class Histories extends Model{
-    private $id_history;
-    private $id_user;
-    private $activity;
+class Ahistories extends Model{
+    private $HistoryID;
+    private $AdminID;
+    private $Activity;
 
-    private $date;
+    private $TimeStamp;
+    private $TargetID;
     
-    protected $table ="user_history";
-    protected $clePrimaire="id_user";
+    protected $table ="admin_history";
+    protected $clePrimaire="AdminID";
     
-    public function getId_user(){
-        return $this->id_user;
+    public function getAdminID(){
+        return $this->AdminID;
     }
-    public function setId_user($id_user){
-        $this->id_user=$id_user;
+    public function setAdminID($AdminID){
+        $this->AdminID=$AdminID;
     }
 
     public function getActivity(){
-        return $this->activity;
+        return $this->Activity;
     }
     public function setActivity($admin_id){
-        $this->activity=$admin_id;
+        $this->Activity=$admin_id;
     }
-    public function getDate(){
-        return $this->date;
+    public function getTimeStamp(){
+        return $this->TimeStamp;
     }
-    public function setDate($admin_id){
-        $this->date=$admin_id;
+    public function setTimeStamp($admin_id){
+        $this->TimeStamp=$admin_id;
     }
 
     
-    public function __construct( $id_user=null, $activity=null ){
-       $this->id_user=$id_user;
-       $this->activity=$activity;
+    public function __construct( $AdminID=null, $Activity=null,$TargetID=null){
+       $this->AdminID=$AdminID;
+       $this->Activity=$Activity;
+       $this->TargetID=$TargetID;
     }
 
     public function add_history($ligne){
         $db=self::Connection();
         $sql="INSERT INTO {$this->table} (";
         foreach($ligne as $key=>$value) $sql.=$key.",";
-        $sql.="date ) VALUES(";
+        $sql=rtrim($sql,",").") VALUES(";
         foreach($ligne as $key=>$value) $sql.=":".$key.",";
-        $sql.="NOW())";
+        $sql=rtrim($sql,",").")";
         $requete=$db->prepare($sql);
         foreach($ligne as $key=>$value)         $requete->bindValue($key,$value);     
         var_dump($requete);
@@ -58,7 +60,7 @@ class Histories extends Model{
 
     public function get_history($id){
     $db=self::Connection();
-    $sql= "SELECT * FROM user_history WHERE id_user=$id";
+    $sql= "SELECT * FROM admin_history WHERE AdminID=$id";
     $Liste=[];
     try{
         $resultat=$db->query($sql);
@@ -71,10 +73,9 @@ class Histories extends Model{
     }
     return $Liste;
     }
-
     public function delete_history($id){
         $db=self::Connection();
-        $sql="DELETE FROM user_history WHERE id_user=$id";
+        $sql="DELETE FROM admin_history WHERE AdminID=$id";
         try{
             $resultat=$db->exec($sql);
             return $resultat;

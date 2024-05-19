@@ -23,3 +23,5 @@
 </div>
 </center>
 </body>    
+
+<!--admin type/admin_history/badalt type image /id_history user-->

@@ -115,5 +115,15 @@ case "deleteMyhackathon":
     include_once "Views/Hackathons/delete_hackathon.php";
     break;  
     
+case "delete_hackathon":
+    $h=new Hackathons();
+    $his=new Histories();
+    $id=(int)$_GET["id_hackathon"];
+    $id_user=(int)$_GET["id_user"];
+    $ha=$h->getById($id);
+    $resultat=$h->delete($id);  
+    $his->add_history(["id_user"=>$id_user,"activity"=>"Deleted ".$ha->name_hackathon." hackathon"]);
+    include_once "Views/Hackathons/delete_hackathon_admin.php";
+    break;       
 }
 ?>

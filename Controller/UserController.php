@@ -1,5 +1,6 @@
 <?php
-include_once "Model/Users.php";
+    include_once "Model/Users.php";
+    include_once "Model/Ahistories.php";
 switch($action){
    
    case "sign_in":
@@ -46,8 +47,12 @@ switch($action){
 }
 case "deleteUser":
     $u=new Users();
+    $his=new Ahistories();
     $id=(int)$_GET["id_user"];
+    $id_admin=(int)$_GET["id_admin"];
+    $user=$u->getById($id);
     $resultat=$u->delete($id);  
+    $his->add_history(["AdminID"=>$id_admin,"Activity"=>"Deleted ".$user->name." user","TargetID"=>$user->id]);
     include_once "Views/Users/delete_user.php";
     break;       
 }

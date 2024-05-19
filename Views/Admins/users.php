@@ -10,7 +10,8 @@
 </head>
 <body>
     <div class="d-flex ">
-    <?php include_once "Views/Includes/Navbar_admin.php"; ?>
+      <?php include_once "Views/Includes/Navbar_admin.php"; 
+      ?>
 <div class="bg-body-tertiary w-75">
     <p class="display-4 ms-5 mt-5">Users list</p>
 <table class="table table-striped mt-5">
@@ -32,7 +33,7 @@
       <td><?=$user->first_name?></td>
       <td><?=$user->email_address?></td>
       <td><?=$user->telephone_number?></td>
-      <td><a href="index.php?controller=user&action=deleteUser&id_user=<?=$user->id?>"><button type="button" class="btn btn-outline-danger">Delete</button></a>
+      <td><a href="index.php?controller=user&action=deleteUser&id_user=<?=$user->id?>&id_admin=<?=$_SESSION["admin_id"]?>"><button type="button" class="btn btn-outline-danger">Delete</button></a>
       <a href="index.php?controller=history&action=readIdhistory&id_user=<?=$user->id?>"><button type="button" class="btn btn-outline-warning">History</button></a>
       </td>
     </tr>

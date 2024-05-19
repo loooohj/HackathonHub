@@ -28,6 +28,7 @@
       <th scope="col" class="col-lg-8">Minimum number of members</th>
       <th scope="col" class="col-lg-8">Maximum number of members</th>
       <th scope="col" class="col-lg-8">Descriptive text</th>
+      <th scope="col" class="col-lg-8">Action</th>
 
     </tr>
   </thead>
@@ -47,7 +48,9 @@
       <td><?=$hackathon->min_num_members?></td>
       <td><?=$hackathon->max_num_members?></td>
       <td><?=$hackathon->descriptive_text?></td>
-
+      <td><a href="index.php?controller=hackathon&action=delete_hackathon&id_hackathon=<?=$hackathon->id_hackathon?>"><button type="button" class="btn btn-outline-danger">Delete</button></a>
+      <a href="index.php?controller=hackathon&action=updateMyhackathon1&id_hackathon=<?=$Hackathon->id_hackathon?>&id_user=<?=$id?>"><button type="button" class="btn btn-outline-success">Update</button></a>  
+    </td> 
     </tr>
     <?php }?>
   </tbody>  

@@ -34,11 +34,21 @@ switch($action){
             $Hackathon->id_user=$user->name;
         }
         include_once "Views/Admins/hackathons.php";
-        break;  
+        break;
+          
     case "readAdmins":
         $a=new Admins();
         $ListeAdmins=$a->getall();      
         include_once "Views/Admins/admins.php";
         break;  
+    case "deleteAdmin":
+        $a=new Admins();
+        $id=(int)$_GET["id_admin"];
+        $resultat=$a->delete($id);  
+        include_once "Views/Admins/delete_admin.php";
+        break;   
+
     }
+
+
 ?>
