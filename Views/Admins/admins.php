@@ -12,7 +12,10 @@
     <div class="d-flex ">
     <?php include_once "Views/Includes/Navbar_admin.php"; ?>
 <div class="bg-body-tertiary w-75">
-    <p class="display-4 ms-5 mt-5">Admins list</p>
+    <p class="display-4 ms-5 mt-5">Admins list
+
+      <a href="index.php?controller=admin&action=addAdmin1&id_admin=<?=$admin['admin_id']?>"><button type="button" class="btn btn-outline-primary">Add admin</button></a> 
+    </p>
     <table class="table table-striped mt-5">
 <thead>
     <tr>

@@ -48,7 +48,34 @@ switch($action){
         include_once "Views/Admins/delete_admin.php";
         break;   
 
-    }
+    case "addAdmin1":
+        include_once "Views/Admins/add_admin1.php";
+        break;
+    case "addAdmin2":
+            if (empty($_POST["name"]) or empty($_POST["login"]) or empty($_POST["email"]) or empty($_POST["password"]) or empty($_POST["admin_type"])){?>
+            <script>
+            alert("Please fill out all fields !");
+            </script>        
+            <?php
+            }
+    
+            $name=$_POST["name"]; 
+            $login=$_POST["login"]; 
+            $email=$_POST["email"]; 
+            $password=$_POST["password"];
+            $a=new Admins();
+            $resultat=$a->add(["admin_name"=>$name,"login"=>$login,"admin_email"=>$email,"admin_password"=>$password]);
+            include_once "Views/Admins/add_admin2.php";
+            break;
+            
+         
+         
+        }
+         
+
+
+    
+
 
 
 ?>
